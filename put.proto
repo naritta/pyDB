@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package put;
+
+service DB {
+  rpc Put (PutRequest) returns (PutResponse) {}
+}
+
+message PutRequest {
+  string name = 1;
+}
+
+message PutResponse {
+  string message = 1;
+}
