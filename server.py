@@ -7,6 +7,10 @@ class DB(put_pb2_grpc.DBServicer):
     def Put(self, request, context):
         print("RECV: %s" % request.name)
         message = "Registered, %s!" % request.name
+        # todo: make this async and return ASAP
+        # todo: use independent Id for filename
+        with open("./file.proto", "wb") as fd:
+            fd.write(request.SerializeToString())
         print("SEND: %s" % message)
         return put_pb2.PutResponse(message=message)
 
