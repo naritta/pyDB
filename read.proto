@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package read;
+
+service DB {
+  rpc Read (ReadRequest) returns (ReadResponse) {}
+}
+
+message ReadRequest {
+  string name = 1;
+}
+
+message ReadResponse {
+  string message = 1;
+}
