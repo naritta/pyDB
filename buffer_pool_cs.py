@@ -4,7 +4,7 @@ class LinkedList():
         self.value = None
         self.pre = None
         self.next = None
-        self.ref = 0
+        self.ref = 1
 
 class BufferPool:
     def __init__(self, capacity):
@@ -15,6 +15,8 @@ class BufferPool:
         self.tail = LinkedList()
         self.head.next = self.tail
         self.tail.pre = self.head
+        self.tail.next = self.head
+        self.victim_buffer_node = None
 
     def remove_node(self, node):
         node.pre.next = node.next
